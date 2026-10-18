@@ -3,7 +3,7 @@ project:
   title:        "EEE703128-1-1-26-N01--A05-24107840"      # Project title
   author:       "Son-nion"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "4x4-bit unsigned gate-level array multiplier"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -22,25 +22,25 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
-  # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+ # Đầu vào: A (4-bit) và B (4-bit)
+  ui[0]: "A[0]"
+  ui[1]: "A[1]"
+  ui[2]: "A[2]"
+  ui[3]: "A[3]"
+  ui[4]: "B[0]"
+  ui[5]: "B[1]"
+  ui[6]: "B[2]"
+  ui[7]: "B[3]"
 
-  # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+ # Đầu ra: Tích P (8-bit) = A * B
+  uo[0]: "P[0]"
+  uo[1]: "P[1]"
+  uo[2]: "P[2]"
+  uo[3]: "P[3]"
+  uo[4]: "P[4]"
+  uo[5]: "P[5]"
+  uo[6]: "P[6]"
+  uo[7]: "P[7]"
 
   # Bidirectional pins
   uio[0]: ""
