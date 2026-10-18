@@ -36,8 +36,8 @@ module multiplier_4x4_gates (
     wire [3:0] pp0, pp1, pp2, pp3;
 
     // Tạo 16 tích một phần bằng 16 cổng AND (không dùng dấu *)
-    and (pp0[0], A[0], B[0]); and (pp0[1], A[1], B[0]); ...
-    and (pp1[0], A[0], B[1]); and (pp1[1], A[1], B[1]); ...
+    and (pp0[0], A[0], B[0]); and (pp0[1], A[1], B[0]); 
+    and (pp1[0], A[0], B[1]); and (pp1[1], A[1], B[1]); 
     // ... Đưa các đường dây pp vào mảng HA và FA để cộng ra P[7:0]
 endmodule
 
