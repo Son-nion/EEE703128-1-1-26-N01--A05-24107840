@@ -40,3 +40,30 @@ module multiplier_4x4_gates (
     and (pp1[0], A[0], B[1]); and (pp1[1], A[1], B[1]); ...
     // ... Đưa các đường dây pp vào mảng HA và FA để cộng ra P[7:0]
 endmodule
+
+module tt_um_Son_nion_multiplier4x4 (
+    input  wire [7:0] ui_in,    // Chân vào cố định (Dedicated inputs)
+    output wire [7:0] uo_out,   // Chân ra cố định (Dedicated outputs)
+    input  wire [7:0] uio_in,   // IOs hai chiều - đường vào
+    output wire [7:0] uio_out,  // IOs hai chiều - đường ra
+    output wire [7:0] uio_oe,   // IOs hai chiều - cho phép xuất (1 = Output, 0 = Input)
+    input  wire       ena,      // Tín hiệu enable từ chip Tiny Tapeout (luôn = 1 khi chọn)
+    input  wire       clk,      // Xung clock (không dùng tới)
+    input  wire       rst_n     // Reset tích cực mức thấp (không dùng tới)
+);
+
+    // 1. Cấu hình các chân I/O hai chiều không sử dụng
+    assign uio_out = 8'b00000000;
+    assign uio_oe  = 8'b00000000; // Đặt tất cả làm Input để tránh xung đột bus
+
+    // 2. Tránh cảnh báo Linter/OpenLane về các tín hiệu dư thừa không kết nối
+    wire _unused = &{clk, rst_n, ena, uio_in, 1'b0};
+
+    // 3. Gọi (Instantiate) khối nhân 4x4 chính
+    multiplier_4x4_gates multiplier_inst (
+        .A(ui_in[3:0]),   // 4 bit thấp của ui_in làm số nhân A
+        .B(ui_in[7:4]),   // 4 bit cao của ui_in làm số nhân B
+        .P(uo_out[7:0])   // Kết quả tích 8-bit xuất ra uo_out
+    );
+
+endmodule
