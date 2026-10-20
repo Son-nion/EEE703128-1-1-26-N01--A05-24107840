@@ -101,3 +101,4 @@ module A05_array_mult4x4 (
     assign p[7:4] = {k3[4], s3[3:1]};
 
 endmodule
+`default_nettype wire
