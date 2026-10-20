@@ -54,3 +54,9 @@ pinout:
 
 # Do not change!
 yaml_version: 6
+name: Upload Waveform Artifact
+        uses: actions/upload-artifact@v4
+        if: always() # Lưu file kể cả khi test PASS hay FAIL
+        with:
+          name: waveform-vcd
+          path: test/tb.vcd
