@@ -18,7 +18,7 @@ module tb;
     integer ia, ib;       
     integer pp_sum;       
     integer i, j;         
-    tt_um_example user_project (
+    tt_um_Son_nion_multiplier4x4 (
         .ui_in  (ui_in),
         .uo_out (uo_out),
         .uio_in (uio_in),
